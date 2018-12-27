@@ -98,6 +98,10 @@
             Go Back to the Viewer
           </b-button>
         </div>
+
+        <div v-else-if="currentStep === 5">
+          <WaitingGame />
+        </div>
       </div>
     </div>
   </b-modal>
@@ -109,6 +113,7 @@ import { mapState, mapGetters } from 'vuex'
 
 import config from '../../util/config'
 
+import WaitingGame from '../WaitingGame'
 import CODXCheckoutControl from '../CODXCheckoutControl'
 
 export default {
@@ -131,6 +136,7 @@ export default {
   ],
 
   components: {
+    WaitingGame,
     CODXCheckoutControl,
   },
 
@@ -142,7 +148,7 @@ export default {
       metamaskError: null,
       modalVisible: false,
       preventClose: false,
-      currentStep: 0,
+      currentStep: 5,
       errors: [],
       shown: this.onShown || noOp,
       disableButton: false,
